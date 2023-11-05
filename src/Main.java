@@ -6,8 +6,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-
         //normale Zeichen
         System.out.println("-- Zeichen --");
         Pattern pattern = Pattern.compile("abc");
@@ -89,6 +87,16 @@ public class Main {
         pattern = Pattern.compile("cat|dog");
         m = pattern.matcher("dog");
         System.out.println(m.matches());
+
+        //unicode categories
+        System.out.println("-- unicode categories  --");
+        //e.g. \p{L} matches any kind of letter from any language.
+        pattern = Pattern.compile("1\\p{L}2");
+        m = pattern.matcher("1ü2");
+        System.out.println(m.matches());
+        m = pattern.matcher("1ê2");
+        System.out.println(m.matches());
+        //for more unicode categories see: https://www.regular-expressions.info/unicode.html
 
         //groups
         System.out.println("-- groups  --");
